@@ -53,10 +53,10 @@
                 </li>
             </ul>
         </li>
-        <li><a href="<%=basePath%>common/toUserList.do"><span class="glyphicon glyphicon-user"></span> 用户列表</a></li>
+        <li><a href="<%=basePath%>common/toUserList.do"><span class="glyphicon glyphicon-user"></span> 用户管理</a></li>
         <li class="parent">
             <a href="javasjavascript:void(0);">
-                <span class="glyphicon glyphicon-list"></span> 系统管理
+                <span class="glyphicon glyphicon-list"></span> 设备属性管理
                 <span data-toggle="collapse" href="#sub-item-2" class="icon pull-right">
                     <em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
             </a>
@@ -98,7 +98,8 @@
                 </li>
             </ul>
         </li>
-        <li class="parent ">
+        <%--设备现状？ 
+         <li class="parent ">
             <a href="#">
                 <span class="glyphicon glyphicon-lock"></span> 系统维护
                 <span data-toggle="collapse" href="#sub-item-3" class="icon pull-right">
@@ -107,7 +108,7 @@
             </a>
             <ul class="children collapse" id="sub-item-3">
                 <li>
-                    <a class="" href="<%=basePath%>system/deviceStatus.do">
+                    <a class="" href="#">
                         <span class="glyphicon glyphicon-share-alt"></span> 设备现状
                     </a>
                 </li>
@@ -117,12 +118,14 @@
                     </a>
                 </li>
                 <li>
-                    <a class="" href="<%=basePath%>druid/index.html" target="_blank">
+                  <a class="" href="<%=basePath%>druid/index.html" target="_blank">
                         <span class="glyphicon glyphicon-share-alt"></span> 系统监控
                     </a>
                 </li>
             </ul>
         </li>
+        --%> 
+      
         </c:if>
     </ul>
 </div>

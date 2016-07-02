@@ -39,7 +39,11 @@ function devInfoDetail(){
         'newwindow', 'width=710,height=600, top=50, left=50,toolbar=no, menubar=no, scrollbars=yes,' +
         'resizable=yes, location=no, status=no,left=500px');
 }
-function downloadDevInfo(){
+function downloadDevInfo(role){
+    if(role!=4){
+        alert("对不起，你的权限不足！");
+        return;
+    }
     var devNo=$("#devNo").val();
     var devName=$("#devName").val();
     var cateId=$("#cateId").val();

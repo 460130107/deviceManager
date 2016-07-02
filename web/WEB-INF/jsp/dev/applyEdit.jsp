@@ -19,6 +19,7 @@
   <title>实验室设备管理系统--设备申请编辑</title>
   <link href="<%=basePath%>css/bootstrap.min.css" rel="stylesheet">
   <link href="<%=basePath%>css/styles.css" rel="stylesheet">
+  <link href="<%=basePath%>css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
   <link rel="shortcut icon" href="<%=basePath%>images/device.ico" />
 </head>
 <body>
@@ -58,7 +59,11 @@
         </div>
         <div style="margin-left: 50px;">
           <label>申请数量</label>
-          <input id="applyNum1" style="width: 200px;"><br>
+          <input id="applyNum1" style="width: 200px;">
+          <label style="margin-left: 183px;">申请时间</label>
+          <input id="startTime1" style="width: 200px;" class="form_datetime" readonly="true">至
+          <input id="endTime1" style="width: 200px;" class="form_datetime" readonly="true">
+          <br>
         </div>
       </div>
       <div class="row">
@@ -92,8 +97,13 @@
         </div>
         <div style="margin-left: 50px;">
           <label>申请数量</label>
-          <input id="applyNum2" style="width: 200px;"><br>
+          <input id="applyNum2" style="width: 200px;">
+          <label style="margin-left: 183px;">申请时间</label>
+          <input id="startTime2" style="width: 200px;" class="form_datetime" readonly="true">至
+          <input id="endTime2" style="width: 200px;" class="form_datetime" readonly="true">
+          <br>
         </div>
+
       </div>
     </div>
     <div class="row">
@@ -103,7 +113,12 @@
       <div class="breadcrumb">设备申请信息填写</div>
       <div style="margin-left: 50px;">
         <label>申请理由</label><br>
-        <textarea id="applyText" style="width: 600px; height: 100px;resize: none;"></textarea>
+	        <select name="applyText">
+	        	<option>--------请选择---------</option>
+	        	<option value="申请理由1">申请理由1</option>
+	        	<option value="申请理由2">申请理由2</option>
+	        	<option value="申请理由3">申请理由3</option>
+	        </select>
       </div>
       <div style="margin-left: 50px;">
         <label>备注</label><br>
@@ -115,5 +130,10 @@
 <script src="<%=basePath%>js/bootstrap.min.js"></script>
 <script src="<%=basePath%>js/bootstrap-table.js"></script>
 <script src="<%=basePath%>js/apply.js"></script>
+<script type="text/javascript" src="<%=basePath%>js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script type="text/javascript">
+  $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+</script>
+  <script type="text/javascript" src="<%=basePath%>js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
 </body>
 </html>

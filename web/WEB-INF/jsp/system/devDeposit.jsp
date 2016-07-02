@@ -64,7 +64,7 @@
               <tr>
                 <td><input type="radio" name="originId" value="${depo.id}" onclick="document.getElementById('depositId').value=this.value;"></td>
                 <td>${depo.depositNo}</td>
-                <td>${depo.depositName}</td>
+               <td>${depo.depositName}<a href="diandeng.html">点灯</a></td>
                 <td>${depo.createEmpName}</td>
                 <td>${depo.modifyEmpName}</td>
                 <td><fmt:formatDate value="${depo.createTime}" pattern="yyyy-MM-dd HH:mm"/></td>

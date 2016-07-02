@@ -31,4 +31,5 @@ public interface JspageConstant {
     public final static String USERDETAIL="userDetail";
     public final static String UPDATEPWD="updatePwd";
     public final static String ADDSYSTEMPARAM="system/addSystemParam";
+    public final static String DEVINFOLISTFORUSER="dev/devInfoListForUser";
 }

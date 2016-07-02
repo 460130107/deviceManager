@@ -15,7 +15,7 @@
                 and apply_emp=(SELECT id from tb_scd_user where real_name=#{applyEmpName})
             </if>
         </if>
-        <if test="applyEmpId!=0">
+        <if test="applyEmpId!=null">
             and  apply_emp=#{applyEmpId}
         </if>
         <if test="status!=null">

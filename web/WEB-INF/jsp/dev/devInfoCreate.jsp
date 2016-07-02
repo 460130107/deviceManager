@@ -105,13 +105,15 @@
       <div style="margin-left: 50px;">
         <label>购买时间</label>
         <input id="purchaseTime" name="purchaseTime" style="width: 200px;">
+        <label style="margin-left: 100px;">设备年份</label>
+        <input id="devYear" name="devYear" style="width: 200px;">
       </div>
     </div>
     <div class="row">
       <div class="breadcrumb">设备使用情况</div>
       <div style="margin-left: 50px;">
         <label>设备总量</label>
-        <input id="devNum" style="width: 200px;">
+        <input id="devNum" name="devSum"style="width: 200px;">
         <label style="margin-left: 100px;">借出数量</label>
         <input id="devApplyNum" style="width: 200px;" readonly="true"><br>
       </div>

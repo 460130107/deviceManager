@@ -36,7 +36,16 @@ public class DevInfoServiceImpl implements DevInfoService {
     private DevDumpDao dumpDao;
     @Override
     public List<DevInfo> queryDevInfo(DevInfo devInfo) {
-        return devInfoDao.queryDevInfo(devInfo);
+    	List<DevInfo> list = devInfoDao.queryDevInfo(devInfo);
+    	for(DevInfo dev : list){
+    		int devSum = dev.getDevSum()==null?0:dev.getDevSum();
+    		if(devSum!=0){
+    			dev.setDevAvbNum(devSum-applyDao.queryLendNumByDevId(dev.getId())
+    							-maintainDao.queryMaintainNumByDevId(dev.getId())
+    							-dumpDao.queryDumpNumByDevId(dev.getId()));
+    		}
+    	}
+        return list;
     }
 
     @Override

@@ -107,4 +107,8 @@ public class CommonController implements JspageConstant{
         modelMap.put("systemParamName",request.getParameter("systemParamName"));
         return ADDSYSTEMPARAM;
     }
+    @RequestMapping("toDevInfoListForUser.do")
+    public String toDevInfoListForUser(){
+        return DEVINFOLISTFORUSER;
+    }
 }

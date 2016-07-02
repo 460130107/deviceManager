@@ -66,10 +66,14 @@ function addApplyItem(){
     +"</div>"
     +"<div style='margin-left: 50px;'>"
     +"<label>申请数量</label>"
-    +"<input id='applyNum"+nowItemLine+"' style='width: 200px;'><br>"
+    +"<input id='applyNum"+nowItemLine+"' style='width: 200px;'>"
+    +"<label style='margin-left: 192px;'>申请时间</label>"
+    +"<input id='startTime"+nowItemLine+"' style='width: 200px;' class='form_datetime' readonly='true'>至"
+    +"<input id='endTime"+nowItemLine+"' style='width: 200px;' class='form_datetime' readonly='true'><br>"
     +"</div>"
     +"</div>";
     $("#applyItem").append(item);
+    $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
 }
 function findDevInfo(obj){
     var devNoId="#devNo"+obj;
@@ -114,10 +118,14 @@ function saveApply(){
     for(var i=1;i<=nowItemLine;i++){
         var devIdId="#devId"+i;
         var applyNumId="#applyNum"+i;
+        var startTimeId="#startTime"+i;
+        var endTimeId="#endTime"+i;
         var devId=$(devIdId).val();
         var applyNum=$(applyNumId).val();
+        var startTime=$(startTimeId).val();
+        var endTime=$(endTimeId).val();
         if(devId!=""){
-            itemJson=itemJson+"{"+"\""+"devId"+"\""+":"+devId+","+"\""+"devNum"+"\""+":"+applyNum+"},";
+            itemJson=itemJson+"{"+"\""+"devId"+"\""+":"+devId+","+"\""+"devNum"+"\""+":"+applyNum+","+"\""+"startTime"+"\""+":\""+startTime+"\","+"\""+"endTime"+"\""+":\""+endTime+"\""+"},";
         }
     }
     if(itemJson=="["){
@@ -314,4 +322,20 @@ function revert(){
             })
         }
     }
+}
+function queryMyApplyList(){
+    var applyNo=$("#applyNo").val();
+    var bathPath=$("#basePath").val();
+    $.ajax({
+        type:"POST",
+        url:bathPath+"apply/queryMyApplyList.do",
+        data:{applyNo:applyNo},
+        async:false,
+        error:function(){
+            alert("系统内部错误，请稍后再试");
+        },
+        success:function(data){
+            initApplyList(eval(data));
+        }
+    })
 }

@@ -20,7 +20,7 @@ public class Apply extends BaseBean {
     public static final String APPLY_BACK="已归还";
     public static final String APPLY_REFUSE="已拒绝";
     private String applyNo;//申请编号
-    private long applyEmpId;//申请人id
+    private Long applyEmpId;//申请人id
     private String applyEmpName;//申请人姓名
     private Integer status;//申请状态
     private Long dealEmpId;//处理人id
@@ -41,11 +41,11 @@ public class Apply extends BaseBean {
         this.applyNo = applyNo;
     }
 
-    public long getApplyEmpId() {
+    public Long getApplyEmpId() {
         return applyEmpId;
     }
 
-    public void setApplyEmpId(long applyEmpId) {
+    public void setApplyEmpId(Long applyEmpId) {
         this.applyEmpId = applyEmpId;
     }
 

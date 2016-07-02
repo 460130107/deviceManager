@@ -1,13 +1,14 @@
 package com.nuc.device.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.nuc.device.base.dao.DevDepositDao;
 import com.nuc.device.base.poi.ExportExcel;
 import com.nuc.device.base.poi.ImportExcel;
-import com.nuc.device.base.poi.util.PoiCommonUtils;
 import com.nuc.device.bean.DevInfo;
 import com.nuc.device.bean.User;
 import com.nuc.device.service.DevInfoService;
-import com.sun.deploy.net.HttpResponse;
+import com.nuc.device.util.HttpUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,13 +23,7 @@ import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.util.List;
 
-/**
- * Created by IDEA
- * User:Leopold
- * Email:ylp_boy@126.com
- * Date:2015/12/20
- * Time:14:28
- */
+
 @Controller
 @RequestMapping("devInfo/")
 public class DevInfoController{
@@ -39,6 +34,8 @@ public class DevInfoController{
     private final static String devInfoCreate="dev/devInfoCreate";
     @Autowired
     private DevInfoService devInfoService;
+    @Autowired
+    private DevDepositDao  depositDao;
     @RequestMapping("queryDevInfo.do")
     public void queryDevInfo(HttpServletResponse response,DevInfo devInfo){
         try {
@@ -133,5 +130,14 @@ public class DevInfoController{
     @RequestMapping("toDevInfoImport.do")
     public String toDevInfoImport(){
         return "dev/devImport";
+    }
+    public void openDevDepositLamp(HttpServletResponse response,Long devDepositId){
+    	try{
+    		String lampNo = depositDao.queryDepositById(devDepositId).getLampNo();
+    		HttpUtils.doGet("pin=ON"+lampNo);
+    		response.getWriter().write("1");
+    	}catch(Exception e){
+    		e.printStackTrace();
+    	}
     }
 }

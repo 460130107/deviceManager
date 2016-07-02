@@ -21,11 +21,6 @@
   <link href="<%=basePath%>css/datepicker3.css" rel="stylesheet">
   <link href="<%=basePath%>css/styles.css" rel="stylesheet">
   <link rel="shortcut icon" href="<%=basePath%>images/device.ico" />
-
-  <!--[if lt IE 9]>
-  <script src="<%=basePath%>js/html5shiv.js"></script>
-  <script src="<%=basePath%>js/respond.min.js"></script>
-  <![endif]-->
 </head>
 <body>
   <jsp:include page="/common/topNonUserSymbal.jsp"/>

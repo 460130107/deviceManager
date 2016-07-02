@@ -65,6 +65,9 @@ public class PoiCommonUtils {
     }
 
     public static Object parseType(Class type,String value){
+    	if(value==null||"".equals(value)){
+    		return null;
+    	}
         if(type.equals(String.class)){
             return value;
         }else if(type.equals(Double.class)){

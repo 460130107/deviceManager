@@ -7,13 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * Created by IDEA
- * User:Leopold
- * Email:ylp_boy@126.com
- * Date:2015/12/16
- * Time:23:59
- */
+
 @Repository
 public class DevDepositDaoImpl extends BaseDao implements DevDepositDao {
     @Override

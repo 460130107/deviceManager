@@ -24,7 +24,8 @@ public class ApplyItem extends BaseBean {
     private String originName;
     private String direcName;
     private String countryName;
-
+    private String startTime;
+    private String endTime;
     public String getItemNo() {
         return itemNo;
     }
@@ -129,4 +130,21 @@ public class ApplyItem extends BaseBean {
     public void setCountryName(String countryName) {
         this.countryName = countryName;
     }
+
+	public String getStartTime() {
+		return startTime;
+	}
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+
+	public String getEndTime() {
+		return endTime;
+	}
+
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
+    
 }

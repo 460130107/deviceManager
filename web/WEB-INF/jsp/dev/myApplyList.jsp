@@ -4,6 +4,7 @@
   String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,10 +16,6 @@
   <link href="<%=basePath%>css/styles.css" rel="stylesheet">
   <link rel="shortcut icon" href="<%=basePath%>images/device.ico" />
 
-  <!--[if lt IE 9]>
-  <script src="<%=basePath%>js/html5shiv.js"></script>
-  <script src="<%=basePath%>js/respond.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <jsp:include page="/common/top.jsp"/>
@@ -37,10 +34,7 @@
       <div style="margin-left: 20px;">
         <label>申请编号</label>
         <input id="applyNo" placeholder="申请编号" style="width: 200px;">
-        <label style="margin-left: 50px;">申请人</label>
-        <input id="applyEmpName" placeholder="申请人" style="width: 200px;">
-        <button onclick="queryApplyList()" class="btn btn-primary" style="margin-left: 50px;">&nbsp;&nbsp;&nbsp;&nbsp;查询&nbsp;&nbsp;&nbsp;&nbsp;</button>
-        <button onclick="" class="btn btn-primary" style="margin-left: 50px;">&nbsp;&nbsp;&nbsp;&nbsp;导出&nbsp;&nbsp;&nbsp;&nbsp;</button>
+        <button onclick="queryMyApplyList()" class="btn btn-primary" style="margin-left: 50px;">&nbsp;&nbsp;&nbsp;&nbsp;查询&nbsp;&nbsp;&nbsp;&nbsp;</button>
       </div>
     </div>
   </div><!--/.row-->
@@ -49,9 +43,7 @@
       <div class="panel panel-default">
         <div class="panel-heading">
           <input type="button" class="btn btn-default" value="详细信息" onclick="queryApplyDetail()"/>
-          <input type="button" class="btn btn-default" value="新建" onclick=""/>
-          <input type="button" class="btn btn-default" value="修改" onclick=""/>
-          <input type="button" class="btn btn-default" value="删除"/>
+          <input type="button" class="btn btn-default" value="新建" onclick="window.open('<%=basePath%>apply/toApplyCreate.do')"/>
         </div>
         <div class="panel-body">
           <table id="applyTable" data-toggle="table" data-pagination="true">
@@ -68,13 +60,13 @@
             </thead>
             <c:forEach items="${applyList}" var="apply">
               <tr>
-                <td>申请人</td>
-                <td>申请编号</td>
-                <td>处理人</td>
-                <td>选择</td>
-                <td>申请状态</td>
-                <td>申请时间</td>
-                <td>处理时间</td>
+              	<td><input type="radio" name="originId" value="${apply.id}" onclick="radioClick(this)"></td>
+                <td>${apply.applyNo}</td>
+                <td>${apply.applyEmpName}</td>
+                <td>${apply.dealEmpName}</td>
+                <td>${apply.statusDesc}</td>
+                <td><fmt:formatDate value="${apply.applyTime}" pattern="yyyy-MM-dd HH:mm"/></td>
+                <td><fmt:formatDate value="${apply.dealTime}" pattern="yyyy-MM-dd HH:mm"/></td>
               </tr>
             </c:forEach>
           </table>
@@ -93,21 +85,6 @@
 <script src="<%=basePath%>js/bootstrap-datepicker.js"></script>
 <script src="<%=basePath%>js/bootstrap-table.js"></script>
 <script src="<%=basePath%>js/apply.js"></script>
-<script>
-  !function ($) {
-    $(document).on("click","ul.nav li.parent > a > span.icon", function(){
-      $(this).find('em:first').toggleClass("glyphicon-minus");
-    });
-    $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
-  }(window.jQuery);
-
-  $(window).on('resize', function () {
-    if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
-  })
-  $(window).on('resize', function () {
-    if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
-  })
-</script>
 </body>
 
 </html>

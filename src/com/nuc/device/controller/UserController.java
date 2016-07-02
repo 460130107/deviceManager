@@ -10,7 +10,6 @@ import com.nuc.device.service.UserService;
 import com.nuc.device.util.CommonUtil;
 import com.nuc.device.util.Page;
 import com.nuc.device.util.PagerHelper;
-import com.sun.deploy.net.HttpResponse;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

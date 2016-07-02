@@ -90,6 +90,8 @@
       <div style="margin-left: 50px;">
         <label>购买时间</label>
         <fmt:formatDate value="${devInfo.purchaseTime}" pattern="yyyy-MM-dd HH:mm"/>
+        <label style="margin-left: 100px;">设备年份</label>
+        <input id="devYear" style="width: 200px;" value="${devInfo.devYear}" readonly="true"><br>
       </div>
     </div>
     <div class="row">

@@ -59,6 +59,9 @@ public class DevInfo extends BaseBean {
     private int lendNum;//借出数量
     private int maintainNum;//维修数量
     private int dumpNum;//报废数量
+    @ExcelColumnName("设备年份")
+    private String devYear;//设备年份
+    private int devAvbNum;//可用数量
     public String getDevNo() {
         return devNo;
     }
@@ -274,4 +277,21 @@ public class DevInfo extends BaseBean {
     public void setDumpNum(int dumpNum) {
         this.dumpNum = dumpNum;
     }
+
+	public String getDevYear() {
+		return devYear;
+	}
+
+	public void setDevYear(String devYear) {
+		this.devYear = devYear;
+	}
+
+	public int getDevAvbNum() {
+		return this.devAvbNum;
+	}
+
+	public void setDevAvbNum(int devAvbNum) {
+		this.devAvbNum = devAvbNum;
+	}
+    
 }

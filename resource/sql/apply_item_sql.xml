@@ -51,7 +51,9 @@
                         modify_time,
                         create_emp,
                         modify_emp,
-                        apply_id
+                        apply_id,
+                        start_time,
+                        end_time
                         )VALUE (
                         #{itemNo},
                         #{devId},
@@ -61,7 +63,9 @@
                         now(),
                         #{createEmpId},
                         #{modifyEmpId},
-                        #{applyId}
+                        #{applyId},
+                        #{startTime},
+                        #{endTime}
                         )
     </insert>
     <update id="updateApplyItem" parameterType="applyItem">

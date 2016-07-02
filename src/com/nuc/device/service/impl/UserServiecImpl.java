@@ -75,12 +75,27 @@ public class UserServiecImpl implements UserService {
         String userMenu=user.getUserMenu();
         String[] menus=userMenu.split(",");
         for (String menu:menus){
-            if(menu.equals(menuId)){
+            if(menu.equals(menuId) || !this.checkUseMenu(menuId)){
                 return;
             }
         }
         userMenu=userMenu+","+menuId;
         user.setUserMenu(userMenu);
         userDao.updateUser(user);
+    }
+
+    /**
+     * 检验菜单是否可以授权给用户
+     * @param menuId
+     * @return
+     */
+    private boolean checkUseMenu(String menuId){
+        String[] strs = CommonConstant.NO_USE_MENU.split(",");
+        for(String str : strs){
+            if(str.equals(menuId)){
+                return false;
+            }
+        }
+        return true;
     }
 }

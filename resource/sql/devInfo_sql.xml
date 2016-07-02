@@ -24,6 +24,7 @@
                  dev.create_emp as createEmpId,
                  dev.modify_emp as modifyEmpId,
                  dev.direc_id as direcId,
+                 dev.dev_year as devYear,
                  (SELECT real_name from tb_scd_user WHERE id=createEmpId) as createEmpName,
                  (SELECT real_name from tb_scd_user WHERE id=modifyEmpId) as modifyEmpName,
                  cate.cate_name as cateName,
@@ -148,7 +149,8 @@
                       create_emp,
                       modify_emp,
                       direc_id,
-                      dev_power
+                      dev_power,
+                      dev_year
                     )VALUES (
                       #{devNo},
                       #{barCode},
@@ -171,7 +173,8 @@
                       #{createEmpId},
                       #{modifyEmpId},
                       #{direcId},
-                      #{devPower}
+                      #{devPower},
+                      #{devYear}
                     )
     </insert>
     <select id="queryDevInfoCount" resultType="int">

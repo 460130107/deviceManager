@@ -20,11 +20,13 @@ public class CommonConstant {
 
     /*默认菜单常量*/
     //学生
-    public final static String ROLE_STUDENT__MENU="1";
+    public final static String ROLE_STUDENT__MENU="1,11,22";
     //教师无管理员权限
-    public final static String ROLE_TEACHER1__MENU="1,2";
+    public final static String ROLE_TEACHER1__MENU="1,2,11,22";
     //教师具备管理员权限
-    public final static String ROLE_TEACHER2__MENU="1,2,3";
+    public final static String ROLE_TEACHER2__MENU="1,2,11,22,8,6";
     //系统管理员
     public final static String ROLE_ADMIN__MENU="1,2,3,4";
+    //不可以授权的菜单id
+    public final static String NO_USE_MENU="3,4,5,13";
 }
