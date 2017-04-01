@@ -37,8 +37,8 @@
     <tx:annotation-driven transaction-manager="txManager"/>
     <aop:config>
         <aop:aspect ref="sqlSessionAspect">
-            <aop:pointcut id="pointcut" expression="execution(* com.nuc.device.dao.*.*(..))"/>
-            <aop:pointcut id="pointcut" expression="execution(* com.nuc.device.base.dao.*.*(..))"/>
+            <aop:pointcut id="pointcut" expression="execution(* com.nuc.device.dao.*.*(..))
+                                                or execution(* com.nuc.device.base.dao.*.*(..))"/>
             <aop:after method="doAfter" pointcut-ref="pointcut"/>
         </aop:aspect>
     </aop:config>

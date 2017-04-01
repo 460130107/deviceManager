@@ -7,8 +7,6 @@ import com.nuc.device.base.poi.ImportExcel;
 import com.nuc.device.bean.DevInfo;
 import com.nuc.device.bean.User;
 import com.nuc.device.service.DevInfoService;
-import com.nuc.device.util.HttpUtils;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +18,8 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 
@@ -130,14 +129,5 @@ public class DevInfoController{
     @RequestMapping("toDevInfoImport.do")
     public String toDevInfoImport(){
         return "dev/devImport";
-    }
-    public void openDevDepositLamp(HttpServletResponse response,Long devDepositId){
-    	try{
-    		String lampNo = depositDao.queryDepositById(devDepositId).getLampNo();
-    		HttpUtils.doGet("pin=ON"+lampNo);
-    		response.getWriter().write("1");
-    	}catch(Exception e){
-    		e.printStackTrace();
-    	}
     }
 }
