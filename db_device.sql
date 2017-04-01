@@ -420,8 +420,6 @@ CREATE TABLE `tb_scd_user` (
 -- ----------------------------
 -- Records of tb_scd_user
 -- ----------------------------
-INSERT INTO `tb_scd_user` VALUES ('4', 'admin', '4QrcOUm6Wau+VuBX8g+IPg==', '杨利鹏', '1', '1', '18235140527', '1,2,3,4,5', null, '2015-12-25 21:39:36', null, '4', '1', null);
-INSERT INTO `tb_scd_user` VALUES ('5', 'zhangsan', '123456', '张三', '1', '1', '18235140527', '1', '2015-11-30 00:12:33', '2015-11-30 00:12:33', '4', '4', '1', null);
 INSERT INTO `tb_scd_user` VALUES ('6', 'lisi', null, null, null, null, null, null, null, null, null, null, '1', null);
 INSERT INTO `tb_scd_user` VALUES ('7', 'aaaa', '4QrcOUm6Wau+VuBX8g+IPg==', null, null, null, null, null, null, '2015-12-25 22:10:49', null, '4', '1', null);
 INSERT INTO `tb_scd_user` VALUES ('8', 'dd', '4QrcOUm6Wau+VuBX8g+IPg==', null, null, null, null, null, null, '2015-12-25 22:10:43', null, '4', '0', null);
